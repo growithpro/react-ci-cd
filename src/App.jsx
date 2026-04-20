@@ -1,18 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState, useEffect } from 'react'
+
+const API = import.meta.env.VITE_API_URL
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [message, setMessage] = useState('Loading...')
+
+  useEffect(() => {
+    fetch(`${API}/api/hello`)
+      .then(res => res.json())
+      .then(data => setMessage(data.message))
+      .catch(err => setMessage('Backend se connection nahi hua!'))
+  }, [])
 
   return (
-    <>
-
-      Hello
-      <input type="button" value="Ok"/>
-    </>
+    <div style={{ textAlign: 'center', marginTop: '50px' }}>
+      <h1>React + Render CI/CD </h1>
+      <p>Backend ka jawab: <strong>{message}</strong></p>
+    </div>
   )
 }
 
