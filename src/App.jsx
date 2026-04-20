@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const API = 'https://react-ci-cd.onrender.com'  // hardcoded
+const API = import.meta.env.VITE_API_URL 
 
 function App() {
   const [message, setMessage] = useState('Loading...')
