@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-const API = import.meta.env.VITE_API_URL
+const API = 'https://react-ci-cd.onrender.com'  // hardcoded
 
 function App() {
   const [message, setMessage] = useState('Loading...')
@@ -14,9 +14,8 @@ function App() {
 
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>React + Render CI/CD </h1>
+      <h1>React + Render CI/CD 🚀</h1>
       <p>Backend ka jawab: <strong>{message}</strong></p>
-      console.log('API:', import.meta.env.VITE_API_URL)
     </div>
   )
 }
