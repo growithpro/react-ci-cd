@@ -3,6 +3,11 @@ name: Deploy React App
 on:
  push:
   branches: [main]
+  paths:
+      - 'src/**'
+      - 'public/**'
+      - 'vite.config.js'
+      - 'index.html'
 
 permissions:
   contents: write
